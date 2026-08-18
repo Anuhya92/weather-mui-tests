@@ -1,28 +1,18 @@
 For this testing exercise, I used an old project — a weather lookup app built with React and Material UI (MUI) — as the codebase . The app lets a user search for a city, fetches live weather data from the Open-Meteo API, and displays the result.
 
-# The app's structure (3 main pieces):
+# The app's structure:
 
-- App — the container. Holds the search input and button, calls Open-Meteo's geocoding API to resolve a city name to           coordinates, then calls the forecast API to get weather data, manages loading/error state, and updates the browser tab title.
+- App — the container. Holds the search input and button, calls Open-Meteo's geocoding API to resolve a city name to coordinates, then calls the forecast API to get weather data, manages loading/error/recent-searches state, and updates the browser tab title.
+
+- Header — presentational title block (page heading, subtitle, helper text). Accepts optional title/subtitle/helperText props so it's reusable elsewhere, but defaults to the app's original copy.
+
+- Footer — presentational attribution/copyright block, rendered at the bottom of the page. Links to Open-Meteo and shows a copyright line with the current year (overridable via a year prop).
 
 - CitySelector — an MUI Autocomplete combobox for picking a city from a known list, with typeahead filtering.
 
+- RecentSearches — shows the last 5 successfully searched cities as clickable chips. Clicking a chip refills the search input via the onSelect callback. Renders nothing when the list is empty.
+
 - WeatherCard — a purely presentational component that displays one city's weather (temperature, description, wind speed, emoji), given a weather object as a prop.
-
-## Test structure
-
-
-__tests__/
-├── integration/
-│   └── App.integration.test.tsx   # App + real fetch flow, mocked at the network boundary
-└── unit/
-    ├── App.test.tsx               # App's static/default UI, in isolation
-    ├── CitySelector.test.tsx      # Autocomplete behavior in isolation
-    └── WeatherCard.test.tsx       # Presentational rendering in isolation
-
-
-- *Unit tests* : render a single component with controlled props/mocked callbacks and assert on its own behavior only.
-
-- *Integration test* :  renders the real App (which composes the other components internally) and drives it exactly as a user would — typing, clicking — with only global.fetch mocked. This verifies the components actually work together, not just individually.
 
 
 # Tests

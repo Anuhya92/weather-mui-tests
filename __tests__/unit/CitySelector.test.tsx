@@ -23,7 +23,7 @@ describe("CitySelector", () => {
     render(<CitySelector options={options} onSelect={onSelectMockFunction} />);
     const combobox = screen.getByRole("combobox", { name: /choose city/i });
 
-    fireEvent.mouseDown(combobox); // event: mouseDown opens the MUI Autocomplete popup
+    fireEvent.mouseDown(combobox); 
 
     const renderedOptions = screen.getAllByRole("option");
     expect(renderedOptions).toHaveLength(options.length);

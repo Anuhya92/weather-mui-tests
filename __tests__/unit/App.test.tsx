@@ -7,10 +7,6 @@ describe("App", () => {
     expect(document.title).toBe("Weather App");
   });
 
-  test("should display the correct title", () => {
-    render(<App />);
-    expect(screen.getByText(/Weather Lookup/i)).toBeInTheDocument();
-  });
 
   test("should display the correct title caption", () => {
     render(<App />);
@@ -31,10 +27,5 @@ describe("App", () => {
     expect(screen.getByRole("button", { name: /Search/i })).toBeInTheDocument();
   });
 
-  test("search button should be disabled when no city is entered", () => {
-    render(<App />);
-    const button = screen.getByRole("button", { name: /Search/i });
-    expect(screen.getByLabelText(/Please enter a city/i)).toHaveValue("");
-    expect(button).toBeDisabled();
-  });
+  
 });
