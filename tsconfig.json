@@ -10,14 +10,13 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "ignoreDeprecations": "6.0",
-    "types": ["jest", "@testing-library/jest-dom"]
+    "types": ["jest", "@testing-library/jest-dom", "node"]
   },
-  "include": ["src", "__tests__/**/*"],
+  "include": ["next-env.d.ts", "app/**/*", "__tests__/**/*", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

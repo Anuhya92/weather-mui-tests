@@ -1,8 +1,12 @@
-For this testing exercise, I used an old project — a weather lookup app built with React and Material UI (MUI) — as the codebase . The app lets a user search for a city, fetches live weather data from the Open-Meteo API, and displays the result.
+For this testing exercise, the proposal is a weather lookup app built with Next.js and Material UI (MUI). A user can search for a city, fetch live weather data from the Open-Meteo API, and view recent searches. This submission contains the proposal and behavioral tests; the application components are intentionally left for the developer implementing the tests.
 
-# The app's structure:
+## Run the Next.js scaffold
 
-- App — the container. Holds the search input and button, calls Open-Meteo's geocoding API to resolve a city name to coordinates, then calls the forecast API to get weather data, manages loading/error/recent-searches state, and updates the browser tab title.
+Run `npm install`, then `npm run dev` to start the Next.js scaffold. Run the test suite with `npm test`.
+
+## The app's structure:
+
+- App — the container. Holds the search input and button, calls Open-Meteo's geocoding API to resolve a city name to coordinates, then calls the forecast API to get weather data, manages loading/error/recent-searches state, and updates the browser tab title. The tests describe this behavior; the implementation is not part of this test-only submission.
 
 - Header — presentational title block (page heading, subtitle, helper text). Accepts optional title/subtitle/helperText props so it's reusable elsewhere, but defaults to the app's original copy.
 
